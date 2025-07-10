@@ -137,6 +137,7 @@ header {
   border-radius: 0.8rem;
   height: fit-content;
   @media (width > 1200px) {
+    padding: 2rem;
     width: 600px;
   }
   .storage__tag {
