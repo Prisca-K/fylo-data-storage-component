@@ -109,7 +109,7 @@ header {
 
   @media (width > 1200px) {
     width: fit-content;
-    padding: 3rem 8rem 3rem 3rem;
+    padding: 3rem 6rem 2rem 3rem;
   }
 }
 .nav__list {
@@ -131,13 +131,13 @@ header {
 
 .storage {
   position: relative;
-  padding: 2rem 3rem;
+  padding: 2rem;
   width: var(--size-full);
   background-color: var(--blue);
   border-radius: 0.8rem;
   height: fit-content;
   @media (width > 1200px) {
-    width: 600px;
+    width: 500px;
   }
   .storage__tag {
     position: absolute;
@@ -145,7 +145,7 @@ header {
     background-color: var(--white);
     color: var(--blue-dark);
     border-radius: 0.5rem;
-    top: 9.5rem;
+    top: 8rem;
     right: 50%;
     transform: translateX(50%);
     display: flex;
