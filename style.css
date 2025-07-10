@@ -1,0 +1,217 @@
+@font-face {
+  font-display: swap;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/assets/fonts/raleway-v36-latin-regular.woff2") format("woff2");
+}
+/* raleway-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/assets/fonts/raleway-v36-latin-700.woff2") format("woff2");
+}
+
+:root {
+  --blue-lighter: hsl(243, 100%, 93%);
+  --blue-light: hsl(229, 7%, 55%);
+  --blue: hsl(228, 56%, 26%);
+  --blue-dark: hsl(229, 57%, 11%);
+  --blue-transparent: hsla(229, 57%, 11%, 0.463);
+  --gradient: to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%);
+  --white: hsl(0, 0%, 99%);
+  --border-radius: 1rem;
+  --gap-base: 1rem;
+  --gap-large: 2rem;
+  --fw-bold: 700;
+  --fw-normal: 400;
+
+  --size-full: 100%;
+}
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  /* Make images easier to work with */
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@layer base {
+  body {
+    background-image: url("./images/bg-mobile.png");
+    background-size: cover;
+    background-position: center;
+
+    font-family: "Raleway", sans-serif;
+    position: relative;
+    min-height: 100vh;
+    margin-inline: auto;
+    width: min(100% - 4rem, 75rem);
+    background-color: var(--blue-dark);
+    color: var(--blue-lighter);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--gap-large);
+    @media (width > 1200px) {
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-image: url("./images/bg-desktop.png");
+      background-size: 100% 50%; /* width height */
+    }
+  }
+
+  p {
+    font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+    text-wrap: pretty;
+  }
+}
+
+.wrapper {
+  width: var(--size-full);
+  display: flex;
+  gap: var(--gap-base);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (width >= 850px) {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--gap-large);
+  }
+}
+
+header {
+  background-color: var(--blue);
+  display: grid;
+  align-items: center;
+  border-radius: 0.5rem;
+  border-top-right-radius: 5rem;
+  width: var(--size-full);
+  padding: 2rem 0 2rem 2rem;
+
+  @media (width > 1200px) {
+    width: fit-content;
+    padding: 2rem 6rem 2rem 2rem;
+  }
+}
+.nav__list {
+  display: flex;
+  margin-top: 2rem;
+  gap: var(--gap-base);
+  .nav__item {
+    display: grid;
+    place-items: center;
+    border-radius: 0.7rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--blue-dark);
+    img {
+      max-height: 1.4rem;
+    }
+  }
+}
+
+.storage {
+  position: relative;
+  padding: 2rem 2rem 3rem 2rem;
+  width: var(--size-full);
+  background-color: var(--blue);
+  border-radius: 0.8rem;
+  height: fit-content;
+  @media (width > 1200px) {
+    width: 600px;
+  }
+  .storage__tag {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    background-color: var(--white);
+    color: var(--blue-dark);
+    border-radius: 0.5rem;
+    top: 8.5rem;
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (width >= 850px) {
+      right: 2rem;
+      top: -2rem;
+      transform: translateX(0%);
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-left: 2rem solid transparent;
+        border-top: 2rem solid var(--white);
+      }
+    }
+
+    .storage__tag-number {
+      font-weight: var(--fw-bold);
+      font-size: 2rem;
+      margin-right: 0.5rem;
+    }
+    .storage__tag-text {
+      font-weight: 400;
+      font-size: 0.8rem;
+      color: var(--blue);
+    }
+  }
+}
+.storage__bar {
+  display: flex;
+  align-items: center;
+  margin-block: 1rem;
+  width: var(--size-full);
+  height: 1.2rem;
+  padding: 0.1rem 0.1rem;
+  background-color: var(--blue-transparent);
+  border-radius: 0.6rem;
+  .storage__progress {
+    position: relative;
+    width: 75%;
+    height: var(--size-full);
+    background-image: linear-gradient(var(--gradient));
+    border-radius: 0.5rem;
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: var(--white);
+      border-radius: 50%;
+
+      width: 11px;
+      height: 11px;
+      top: 50%;
+      right: 3px;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.storage__labels {
+  font-weight: var(--fw-bold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
