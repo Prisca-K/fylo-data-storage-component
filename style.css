@@ -105,11 +105,11 @@ header {
   border-radius: 0.5rem;
   border-top-right-radius: 7rem;
   width: var(--size-full);
-  padding: 3rem 2rem 3rem 3rem;
+  padding: 3rem 2rem 2rem 3rem;
 
   @media (width > 1200px) {
     width: fit-content;
-    padding: 3rem 6rem 2rem 3rem;
+    padding: 3rem 6rem 3rem 3rem;
   }
 }
 .nav__list {
